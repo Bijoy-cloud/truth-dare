@@ -1,0 +1,106 @@
+.circle {
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+}
+.twodiv-circle{
+  position: relative;
+  width: 360px;
+  height: 320px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+
+}
+.div1{
+  width: 100%;
+  height: 50%;
+  border-bottom: 2px solid white;
+  background-color: #cabb32;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  transition: none;
+}
+.div2{
+  width: 100%;
+  height: 50%;
+  border: thin white;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: #e24625f5;
+  transition: none;
+}
+.div1-text{
+  font-size: 20px;
+  position: relative;
+  top: 25px;
+}
+.div2-text{
+  font-size: 20px;
+  position: relative;
+  top: 90px;
+}
+li {
+  outline: none;
+  /* background-color: hotpink; */
+  border: thin solid white;
+  position: absolute;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  bottom: 50%;
+  padding: 0;
+  transform-origin: bottom left;
+  transition: transform 200ms ease-out;
+}
+
+.text {
+  position: absolute;
+  padding: 0px;
+  color: #333;
+  left: 5px;
+  bottom: 80px;
+}
+
+.nth3 {
+  left: 80px;
+  bottom: 100px;
+}
+.nth4 {
+  left: 75px;
+  bottom: 90px;
+}
+.nth5 {
+  left: 65px;
+  bottom: 75px;
+}
+.nth6 {
+  left: 55px;
+  bottom: 65px;
+}
+.nth7 {
+  left: 45px;
+  bottom: 55px;
+}
+.nth-8 {
+  left: 35px;
+  bottom: 45px;
+}
+.nth-9 {
+  left: 25px;
+  bottom: 35px;
+}
+.nth-10 {
+  left: 15px;
+  bottom: 25px;
+}
