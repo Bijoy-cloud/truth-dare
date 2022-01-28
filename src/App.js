@@ -5,17 +5,15 @@ import Board from "./component/Board/board";
 import PopUpModal from "./component/PopUpModal/PopUpModal";
 import { data18, data } from "./component/data";
 function App() {
+  const [counter, setCounter] = useState(-1);
   const [checked, setChecked] = useState(false);
-  const [timedelay, setTimedelay] = useState(false);
   const [inputModalShow, setInputModalShow] = useState(false);
   const [modalShow, setModalShow] = useState(false);
   const [playerNumber, setPlayerNumber] = useState("");
   const [deg, setDeg] = useState(0);
   const [user, setUser] = useState(6);
   const [addInput, setAddInput] = useState(false);
-  const [answer, setanswer] = useState("");
-
-  // console.log('random q is',Math.floor(Math.random()*Data.length))
+  const [temparr, settemparr] = useState([]);
 
   let randomize = (arr, n) => {
     for (let i = n - 1; i > 0; i--) {
@@ -23,17 +21,26 @@ function App() {
       [arr[i], arr[j]] = [arr[j], arr[i]];
     }
   };
-  function randomQuestion() {
+
+  useEffect(() => {
     if (checked === false) {
       randomize(data, data.length);
-      console.log("temp is", data);
-      setanswer(data[Math.floor(Math.random() * data.length)]);
-      // console.log("previous question is", q1);
+      settemparr(data);
     } else {
       randomize(data18, data18.length);
-      setanswer(data18[Math.floor(Math.random() * data18.length)]);
+      settemparr(data18);
+    }
+  }, [temparr, checked]);
+
+  function randomQuestion() {
+    if (counter < temparr.length - 1) {
+      setCounter((prev) => prev + 1);
+    } else {
+      settemparr([]);
+      setCounter(0);
     }
   }
+
   function handleAddUser(e) {
     console.log("check");
     e.preventDefault();
@@ -46,8 +53,6 @@ function App() {
     }
   }
   function getRandom(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
@@ -77,16 +82,11 @@ function App() {
       }, 2000);
     }
   }
-  useEffect(() => {
-    setTimeout(() => {
-      setInputModalShow(true);
-      setTimedelay(true);
-    });
-  }, [timedelay]);
+ 
   function feedbackUpload(e) {
     e.preventDefault();
     // let data = e.target[0].value
-    //     fetch('https://example.com/profile', {
+    //     fetch('https://URL', {
     //   method: 'POST',
     //   headers: {
     //     'Content-Type': 'application/json',
@@ -165,10 +165,10 @@ function App() {
         modalContent={
           <>
             <h4>{`player ${playerNumber} tell us`} </h4>
-            <p style={{ display: "block" }}> {answer}</p>
+            <p style={{ display: "block" }}> {temparr[counter]}</p>
           </>
         }
-        answer={answer}
+        answer={temparr[counter]}
         onHide={() => setModalShow(false)}
       />
       <form onSubmit={feedbackUpload} className="feedback">
