@@ -44,7 +44,7 @@ function Board(props) {
       color: "#ca5adc",
     },
   ];
-
+  // Math.floor(Math.random()*16777215).toString(16)
   function showBoard(user) {
     if (user > 2) {
       const rotateAngle = 360 / user;
@@ -57,7 +57,7 @@ function Board(props) {
           <li key={index}
             style={{
               transform: `rotate(${index * rotateAngle}deg) skewY(${skewAngle}deg)`,
-              background:  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+              background:  `${item.color}`,
             }}
           >
             {/* {console.log('inside map',index*rotateAngle)} */}
