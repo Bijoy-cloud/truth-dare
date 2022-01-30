@@ -95,7 +95,7 @@
   z-index: 1;
   height: 180px;
   width: 50px;
-  transition: transform 4s;
+  transition: transform 3.7s;
 }
 .fast {
   transition: transform 0.5s;

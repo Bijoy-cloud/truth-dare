@@ -75,7 +75,7 @@ function App() {
       }, 4500);
     } else {
       let randomUser = getRandom(0, 1);
-      let rotateAngle = randomUser * sliceAngle + 720;
+      let rotateAngle = randomUser * sliceAngle + 10*720;
       console.log("ab is", randomUser);
       console.log("a is", rotateAngle);
       setDeg(`${rotateAngle}`);

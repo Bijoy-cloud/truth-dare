@@ -58,6 +58,8 @@
   justify-content: flex-end;
 }
 .modal-footer button{
+  min-width:50px;
+  min-height: 30px;
   padding: 0 10px;
 }
 
