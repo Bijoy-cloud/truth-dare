@@ -2,7 +2,6 @@ import React from "react";
 import "./board.css";
 
 function Board(props) {
- 
   const values = [
     {
       color: "#ced206",
@@ -44,7 +43,13 @@ function Board(props) {
       color: "#ca5adc",
     },
   ];
- 
+  function generateLightColor() {
+    const red = Math.floor((1 + Math.random()) * 256/2);
+    const green = Math.floor((1 + Math.random()) * 256/2);
+    const blue = Math.floor((1 + Math.random()) * 256/2);
+    return "rgb(" + red + ", " + green + ", " + blue + ")";
+  }
+  // Math.floor(Math.random()*16777215).toString(16)
   function showBoard(user) {
     if (user > 2) {
       const rotateAngle = 360 / user;
@@ -54,9 +59,10 @@ function Board(props) {
       return arr.map((item, index) => {
         return (
           <li key={index}
+        
             style={{
               transform: `rotate(${index * rotateAngle}deg) skewY(${skewAngle}deg)`,
-              background:  `#${Math.floor(Math.random()*16777215).toString(16)}`,
+              background:  `${generateLightColor()}`,
             }}
           >
             {/* {console.log('inside map',index*rotateAngle)} */}
