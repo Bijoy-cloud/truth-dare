@@ -90,6 +90,8 @@ function App() {
 
   function feedbackUpload(e) {
     e.preventDefault();
+    console.log(e.target[0].value)
+    e.target[0].value= ""
     // let data = e.target[0].value
     //     fetch('https://URL', {
     //   method: 'POST',
@@ -108,7 +110,7 @@ function App() {
   }
   return (
     <>
-      <div className="gameContainer">
+    
         <div className="App">
           <div className="filter">
             <label className="mytoggle" htmlFor="mytoggle">
@@ -193,12 +195,14 @@ function App() {
           <form onSubmit={feedbackUpload} className="feedback">
             <label>Suggest New Question</label>
             <textarea name="feedback" />
-            <Button color="success" size="small" variant="contained">
+            <Button 
+            type="submit"
+            color="success" size="small" variant="contained">
               Submit
             </Button>
           </form>
         </div>
-      </div>
+   
     </>
   );
 }
