@@ -87,7 +87,9 @@ function App() {
       }, 4500);
     }
   }
-
+ useEffect(()=>{
+  setInputModalShow(true)
+ },[])
   function feedbackUpload(e) {
     e.preventDefault();
     console.log(e.target[0].value)
