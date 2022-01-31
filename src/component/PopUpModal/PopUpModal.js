@@ -13,7 +13,7 @@ function PopUpModal(props) {
           <div className="modal-header">
             <img className="logo" src={logo} alt="icon" />
             <div className="close-icon">
-            <AiOutlineClose/> 
+            <AiOutlineClose onClick={props.onHide}/> 
             </div>         </div>
           <div className="modal-content">{props.modalContent}</div>
           <div className="modal-footer">
