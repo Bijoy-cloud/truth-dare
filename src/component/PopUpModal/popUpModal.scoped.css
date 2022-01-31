@@ -31,6 +31,7 @@
   padding: 18px 18px;
   height: 20%;
   background-color: #ff9800;
+  justify-content: space-evenly;
 
 }
 .logo{
@@ -39,6 +40,10 @@
   left: 0;
   width: 80px;
   height: 80px;
+}
+.close-icon{
+  position: absolute;
+  right: 10px;
 }
 .modal-content {
   display: flex;
