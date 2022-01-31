@@ -1,7 +1,7 @@
 import React from "react";
 import "./popUpModal.scoped.css";
 import logo from "./menu-logo.svg";
-import { Button } from "@mui/material";
+// import { Button } from "@mui/material";
 import { AiOutlineClose } from 'react-icons/ai';
 function PopUpModal(props) {
  
@@ -17,7 +17,7 @@ function PopUpModal(props) {
             </div>         </div>
           <div className="modal-content">{props.modalContent}</div>
           <div className="modal-footer">
-            <Button
+            {/* <Button
               style={{
                 backgroundColor: "grey",
               }}
@@ -26,11 +26,11 @@ function PopUpModal(props) {
               onClick={props.onHide}
             >
               Close
-            </Button>
+            </Button> */}
 
-            {/* <button className="close" onClick={props.onHide}>
+            <button className="close" onClick={props.onHide}>
               close
-            </button> */}
+            </button>
           </div>
         </div>
       </div>
