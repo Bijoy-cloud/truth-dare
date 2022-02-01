@@ -9,7 +9,9 @@ import Board from "./component/Board/board";
 import PopUpModal from "./component/PopUpModal/PopUpModal";
 import { data18, data } from "./component/data";
 import ToggleSwitch from "./component/ToggleSwitch";
+import { IconButton } from "@mui/material";
 function App() {
+  const [questionmodal, setQuestionModal] = useState(true);
   const [spinCount, setspinCount] = useState(0);
   const [counter, setCounter] = useState(-1);
   const [checked, setChecked] = useState(false);
@@ -48,14 +50,18 @@ function App() {
   }
 
   function handleAddUser(e) {
-    console.log("check");
+    setQuestionModal(false);
     e.preventDefault();
+
     let input = e.target[0].value;
     if (input < 2 || input > 12) {
       alert("Minimum 2 Players and Maximum 12 Players allowed");
     } else {
+      setspinCount(0);
+      setAddInput(!addInput);
       setInputModalShow(false);
       setUser(input);
+      setQuestionModal(true);
     }
   }
   function getRandom(min, max) {
@@ -116,11 +122,13 @@ function App() {
   return (
     <>
       <div className="App">
-        <div className="filter"
-         onChange={() => {
-          setChecked(!checked);
-        }}>
-          <ToggleSwitch/>
+        <div
+          className="filter"
+          onChange={() => {
+            setChecked(!checked);
+          }}
+        >
+          <ToggleSwitch />
         </div>
 
         <div className="board-border">
@@ -136,11 +144,12 @@ function App() {
             />
           </div>
         </div>
-        {/* <IconButton size="large" > */}
-          <div className="spinBtn">
-          <fiicons.FiRefreshCw onClick={clickHandler}/>
-          </div>
-        {/* </IconButton> */}
+
+        <IconButton onClick={clickHandler} className="spinBtn" size="large">
+          {/* <div className="spinBtn"> */}
+          <fiicons.FiRotateCw size="60px" color="#333" />
+          {/* </div> */}
+        </IconButton>
 
         <div className="restartGame">
           <label className="restartLabel">Spin {`${spinCount}`} times</label>
@@ -162,16 +171,13 @@ function App() {
             <Form onSubmit={handleAddUser}>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Enter Player Number</Form.Label>
-                <Form.Control type="number" placeholder="Enter Player Number" />
+                <Form.Control
+                  required
+                  type="number"
+                  placeholder="Enter Player Number"
+                />
               </Form.Group>
-              <Button
-                variant="primary"
-                onClick={() => {
-                  setspinCount(0);
-                  setAddInput(!addInput);
-                }}
-                type="submit"
-              >
+              <Button variant="primary" type="submit">
                 Submit
               </Button>
             </Form>
@@ -181,29 +187,30 @@ function App() {
         />
 
         <PopUpModal
-
+          questionmodal={questionmodal.toString()}
           checked={checked}
           show={modalShow}
           modalcontent={
             <>
-              <h4>{`player ${playerNumber} Your Question is`} </h4>
+              <h4>{`player ${playerNumber} Your Question is`} </h4>{" "}
+              {/*question update */}
               <p style={{ display: "block" }}> {temparr[counter]}</p>
             </>
           }
           answer={temparr[counter]}
           onHide={() => setModalShow(false)}
         />
-       
+
         <div className="feedback">
-        <Form onSubmit={feedbackUpload}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Suggest New Question</Form.Label>
-            <Form.Control type="text" placeholder="Suggest New Question" />
-          </Form.Group>
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
-        </Form>
+          <Form onSubmit={feedbackUpload}>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Suggest New Question</Form.Label>
+              <Form.Control type="text" placeholder="Suggest New Question" />
+            </Form.Group>
+            <Button variant="primary" type="submit">
+              Submit
+            </Button>
+          </Form>
         </div>
       </div>
     </>

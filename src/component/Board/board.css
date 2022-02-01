@@ -1,25 +1,23 @@
 .circle {
   /* background-color: rgba(0, 0, 0, 0.5); */
   position: relative;
-  top: 7px;
   width: 100%;
   height: 100%;
   border-radius: 50%;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-
+  margin: 0;
 }
-.twodiv-circle{
+.twodiv-circle {
   position: relative;
   width: 360px;
   height: 320px;
   border-radius: 50%;
   display: flex;
   flex-direction: column;
-
 }
-.div1{
+.div1 {
   width: 100%;
   height: 50%;
   border-bottom: 2px solid white;
@@ -30,7 +28,7 @@
   display: block;
   transition: none;
 }
-.div2{
+.div2 {
   width: 100%;
   height: 50%;
   border: thin white;
@@ -40,12 +38,12 @@
   background-color: #e24625f5;
   transition: none;
 }
-.div1-text{
+.div1-text {
   font-size: 20px;
   position: relative;
   top: 25px;
 }
-.div2-text{
+.div2-text {
   font-size: 20px;
   position: relative;
   top: 90px;
