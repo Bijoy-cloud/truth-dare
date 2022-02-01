@@ -1,55 +1,16 @@
+
 import React from "react";
 import "./board.css";
 
 function Board(props) {
-  const values = [
-    {
-      color: "#ced206",
-    },
-    {
-      color: "#e24625f5",
-    },
-    {
-      color: "pink",
-    },
-    {
-      color: "#009debf5",
-    },
-    {
-      color: "#169600f2",
-    },
-    {
-      color: "aqua",
-    },
-    {
-      color: "rgb(115, 218, 28)"
-    },
-    {
-      color: "yellow",
-    },
-    {
-      color: "hotpink",
-    },
-    {
-      color: "cyan",
-    },
-    {
-      color: "orange",
-    },
-    {
-      color: "maroon",
-    },
-    {
-      color: "#ca5adc",
-    },
-  ];
-  function generateLightColor() {
-    const red = Math.floor((1 + Math.random()) * 256/2);
-    const green = Math.floor((1 + Math.random()) * 256/2);
-    const blue = Math.floor((1 + Math.random()) * 256/2);
-    return "rgb(" + red + ", " + green + ", " + blue + ")";
+  const values = [1,2,3,4,5,6,7,8,9,10,11,12];
+  function getRandomColor() {
+    let color = "#";
+    for (let i = 0; i < 3; i++)
+      color += ("0" + Math.floor(((1 + Math.random()) * Math.pow(16, 2)) / 2).toString(16)).slice(-2);
+    return color;
   }
-  // Math.floor(Math.random()*16777215).toString(16)
+
   function showBoard(user) {
     if (user > 2) {
       const rotateAngle = 360 / user;
@@ -58,14 +19,16 @@ function Board(props) {
       const arr = values.slice(0, user);
       return arr.map((item, index) => {
         return (
-          <li key={index}
+          <li 
+          className="lis"
+          key={index}
         
             style={{
               transform: `rotate(${index * rotateAngle}deg) skewY(${skewAngle}deg)`,
-              background:  `${generateLightColor()}`,
+              background:  `${getRandomColor()}`,
             }}
           >
-            {/* {console.log('inside map',index*rotateAngle)} */}
+        
             <div
               className={`text nth${arr.length}`}
               style={{ transform: `rotate(${0}deg) skewY(${-skewAngle}deg)  ` }}

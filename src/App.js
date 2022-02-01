@@ -1,11 +1,14 @@
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import { FiRefreshCw } from "react-icons/fi";
-import Button from "@mui/material/Button";
+import { Form, Button } from "react-bootstrap";
+import * as fiicons from "react-icons/fi";
 import bottle from "./tt.png";
 import { useEffect, useState } from "react";
 import Board from "./component/Board/board";
 import PopUpModal from "./component/PopUpModal/PopUpModal";
 import { data18, data } from "./component/data";
+import ToggleSwitch from "./component/ToggleSwitch";
 function App() {
   const [spinCount, setspinCount] = useState(0);
   const [counter, setCounter] = useState(-1);
@@ -75,7 +78,7 @@ function App() {
       }, 4500);
     } else {
       let randomUser = getRandom(0, 1);
-      let rotateAngle = randomUser * sliceAngle + 10*720;
+      let rotateAngle = randomUser * sliceAngle + 10 * 720;
       console.log("ab is", randomUser);
       console.log("a is", rotateAngle);
       setDeg(`${rotateAngle}`);
@@ -87,13 +90,13 @@ function App() {
       }, 4500);
     }
   }
- useEffect(()=>{
-  setInputModalShow(true)
- },[])
+  useEffect(() => {
+    setInputModalShow(true);
+  }, []);
   function feedbackUpload(e) {
     e.preventDefault();
-    console.log(e.target[0].value)
-    e.target[0].value= ""
+    console.log(e.target[0].value);
+    e.target[0].value = "";
     // let data = e.target[0].value
     //     fetch('https://URL', {
     //   method: 'POST',
@@ -112,99 +115,97 @@ function App() {
   }
   return (
     <>
-    
-        <div className="App">
-          <div className="filter">
-            <label className="mytoggle" htmlFor="mytoggle">
-              <input
-                className="toggle_input"
-                name="toggle_input"
-                type="checkbox"
-                onChange={() => {
-                  setChecked(!checked);
-                }}
-                id="mytoggle"
-              />
-              <div className="toggle_fill" />
-            </label>
-          </div>
-          <div className="board-border">
-            <div className="board-container">
-              <Board name={user} addInput={addInput} />
-              <div className="inside-circle" />
-              <img
-                className={`bottleImg ${modalShow ? "fast" : ""}`}
-                style={{ transform: `rotate(${deg}deg)` }}
-                src={bottle}
-                alt="Beer Boottle->"
-                onClick={clickHandler}
-              />
-            </div>
-          </div>
-
-          <div className="spinBtn" onClick={clickHandler}>
-            <FiRefreshCw />
-          </div>
-
-          <div className="restartGame">
-            <label className="restartLabel">Spin {`${spinCount}`} times</label>
-
-            <Button
-              className="restartBtn"
-              onClick={() => {
-                setInputModalShow(true);
-              }}
-              color="success"
-              size="small"
-              variant="contained"
-            >
-              Restart The Game
-            </Button>
-          </div>
-          <PopUpModal
-            modalContent={
-              <form onSubmit={handleAddUser}>
-                <label>Enter Player Number</label>
-                <input type="number" name="playerCount" />
-                <button
-                  onClick={() => {
-                    setspinCount(0);
-                    setAddInput(!addInput);
-                  }}
-                  type="submit"
-                >
-                  Add
-                </button>
-              </form>
-            }
-            show={inputModalShow}
-            onHide={() => setInputModalShow(false)}
-          />
-
-          <PopUpModal
-            playerNumber={playerNumber}
-            checked={checked}
-            show={modalShow}
-            modalContent={
-              <>
-                <h4>{`player ${playerNumber} tell us`} </h4>
-                <p style={{ display: "block" }}> {temparr[counter]}</p>
-              </>
-            }
-            answer={temparr[counter]}
-            onHide={() => setModalShow(false)}
-          />
-          <form onSubmit={feedbackUpload} className="feedback">
-            <label>Suggest New Question</label>
-            <textarea name="feedback" />
-            <Button 
-            type="submit"
-            color="success" size="small" variant="contained">
-              Submit
-            </Button>
-          </form>
+      <div className="App">
+        <div className="filter"
+         onChange={() => {
+          setChecked(!checked);
+        }}>
+          <ToggleSwitch/>
         </div>
-   
+
+        <div className="board-border">
+          <div className="board-container">
+            <Board name={user} addInput={addInput} />
+            <div className="inside-circle" />
+            <img
+              className={`bottleImg ${modalShow ? "fast" : ""}`}
+              style={{ transform: `rotate(${deg}deg)` }}
+              src={bottle}
+              alt="Beer Boottle->"
+              onClick={clickHandler}
+            />
+          </div>
+        </div>
+        {/* <IconButton size="large" > */}
+          <div className="spinBtn">
+          <fiicons.FiRefreshCw onClick={clickHandler}/>
+          </div>
+        {/* </IconButton> */}
+
+        <div className="restartGame">
+          <label className="restartLabel">Spin {`${spinCount}`} times</label>
+
+          <Button
+            className="restartBtn"
+            onClick={() => {
+              setInputModalShow(true);
+            }}
+            color="success"
+            size="small"
+            variant="contained"
+          >
+            Restart The Game
+          </Button>
+        </div>
+        <PopUpModal
+          modalcontent={
+            <Form onSubmit={handleAddUser}>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Enter Player Number</Form.Label>
+                <Form.Control type="number" placeholder="Enter Player Number" />
+              </Form.Group>
+              <Button
+                variant="primary"
+                onClick={() => {
+                  setspinCount(0);
+                  setAddInput(!addInput);
+                }}
+                type="submit"
+              >
+                Submit
+              </Button>
+            </Form>
+          }
+          show={inputModalShow}
+          onHide={() => setInputModalShow(false)}
+        />
+
+        <PopUpModal
+
+          checked={checked}
+          show={modalShow}
+          modalcontent={
+            <>
+              <h4>{`player ${playerNumber} Your Question is`} </h4>
+              <p style={{ display: "block" }}> {temparr[counter]}</p>
+            </>
+          }
+          answer={temparr[counter]}
+          onHide={() => setModalShow(false)}
+        />
+       
+        <div className="feedback">
+        <Form onSubmit={feedbackUpload}>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Suggest New Question</Form.Label>
+            <Form.Control type="text" placeholder="Suggest New Question" />
+          </Form.Group>
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
+        </Form>
+        </div>
+      </div>
     </>
   );
 }

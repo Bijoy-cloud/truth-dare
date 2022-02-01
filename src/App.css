@@ -3,18 +3,10 @@
   box-sizing: border-box;
   font-family: sans-serif;
 }
-
-.gameContainer {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  border: 5px solid yellowgreen;
-}
 .App {
   height: 100%;
   width: 100%;
-  text-align: center;
+  /* text-align: center; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,42 +17,7 @@
   bottom: 0px;
   left: 100px;
 }
-.toggle_input {
-  visibility: hidden;
-}
-.toggle_fill {
-  margin-top: 10px;
-  position: relative;
-  width: 54px;
-  height: 34px;
-  border-radius: 15px;
-  background: #4caf50;
-  transition: background 0.2ms;
-}
-.toggle_input:checked ~ .toggle_fill {
-  background: #e20d0d;
-}
-.toggle_fill::after {
-  content: "18+";
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  font-weight: bolder;
-  top: 4px;
-  left: 4px;
-  height: 27px;
-  width: 27px;
-  background: #fff;
-  box-shadow: #000, 15%;
-  opacity: X-0, Y-3, Blur-8;
-  border-radius: 50%;
-  transition: all 0.2s;
-}
-.toggle_input:checked + .toggle_fill::after {
-  transform: translateX(18px);
-}
+
 .board-border {
   display: flex;
   align-items: center;
@@ -98,7 +55,7 @@
   transition: transform 3.7s;
 }
 .fast {
-  transition: transform 0.5s;
+  transition: transform 0s;
 }
 
 .inputForm {
@@ -112,7 +69,6 @@
 
 .spinBtn {
   display: block;
-
   margin: 20px;
   display: flex;
   justify-content: center;
@@ -120,12 +76,6 @@
   font-size: 100px;
 }
 
-.spinBtn span {
-  z-index: 1;
-  position: absolute;
-  font-size: 20px;
-  font-weight: bold;
-}
 .restartGame {
   margin: 10px auto;
 }
@@ -144,14 +94,4 @@
   bottom: 20px;
   margin: 20px;
 }
-.feedback label {
-  display: block;
-  text-align: center;
-}
-.feedback textarea {
-  margin-top: 10px;
-  width: 99%;
-  height: 50px;
-  border: 1px solid black;
-  border-radius: 10px;
-}
+
