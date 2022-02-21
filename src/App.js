@@ -41,6 +41,7 @@ function App() {
   }, [temparr, checked]);
 
   function randomQuestion() {
+    // console.log('teamparr is',temparr)
     if (counter < temparr.length - 1) {
       setCounter((prev) => prev + 1);
     } else {
@@ -85,8 +86,8 @@ function App() {
     } else {
       let randomUser = getRandom(0, 1);
       let rotateAngle = randomUser * sliceAngle + 10 * 720;
-      console.log("ab is", randomUser);
-      console.log("a is", rotateAngle);
+      // console.log("ab is", randomUser);
+      // console.log("a is", rotateAngle);
       setDeg(`${rotateAngle}`);
       setPlayerNumber(randomUser + 1);
       setTimeout(() => {
@@ -122,6 +123,7 @@ function App() {
   return (
     <>
       <div className="App">
+        <h2>Truth And Dare</h2>
         <div
           className="filter"
           onChange={() => {
