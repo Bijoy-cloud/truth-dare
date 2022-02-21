@@ -39,6 +39,7 @@ const SwitchThumb = styled('span')`
   background-color: ${blue[700]};
   width: 30px;
   height: 30px;
+  text-align:center;
   border-radius: 8px;
   top: 3px;
   left: 4px;
@@ -46,7 +47,7 @@ const SwitchThumb = styled('span')`
 
   &::before {
     display: block;
-    content: '';
+    content: 'T';
     width: 100%;
     height: 100%;
     color: white;
@@ -61,7 +62,7 @@ const SwitchThumb = styled('span')`
     transform: translateX(24px);
 
     &::before {
-     content:''
+     content:'D'
     }
   }
 `;
