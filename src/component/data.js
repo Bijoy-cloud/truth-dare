@@ -28,7 +28,7 @@ export const data = [
   "Who is ur childhood crush?",
   "Have you ever cheated on exam?",
   "Who is ur celebrity crush?",
-  "what is the most naughtiest thing you have done in your school/college?",
+  "what is the most Craziest thing you have done in your school/college?",
   "Ex-girlfriend or Crush , whom do you wanna meet?",
   "your partner or bestfriend whom do you wanna kill?",
 ];

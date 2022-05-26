@@ -100,26 +100,7 @@ function App() {
   useEffect(() => {
     setInputModalShow(true);
   }, []);
-  function feedbackUpload(e) {
-    e.preventDefault();
-    console.log(e.target[0].value);
-    e.target[0].value = "";
-    // let data = e.target[0].value
-    //     fetch('https://URL', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify(data),
-    // })
-    // .then(response => response.json())
-    // .then(data => {
-    //   console.log('Success:');
-    // })
-    // .catch((error) => {
-    //   console.error('Error:');
-    // });
-  }
+  
   return (
     <>
       <div className="App">
@@ -194,7 +175,7 @@ function App() {
           show={modalShow}
           modalcontent={
             <>
-              <h4>{`player ${playerNumber} Your Question is`} </h4>{" "}
+              <h4>{`Player ${playerNumber} Your ${checked?'Dare':'Truth'} Question is`} </h4>{" "}
               {/*question update */}
               <p style={{ display: "block" }}> {temparr[counter]}</p>
             </>
@@ -202,18 +183,6 @@ function App() {
           answer={temparr[counter]}
           onHide={() => setModalShow(false)}
         />
-
-        <div className="feedback">
-          <Form onSubmit={feedbackUpload}>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Suggest New Question</Form.Label>
-              <Form.Control type="text" placeholder="Suggest New Question" />
-            </Form.Group>
-            <Button variant="primary" type="submit">
-              Submit
-            </Button>
-          </Form>
-        </div>
       </div>
     </>
   );
