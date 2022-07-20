@@ -1,5 +1,5 @@
 export const data18 = [
-  "Show the most embarrassing photo on your phone",
+  "Show the best meme on your phone",
 
   "Show the last five people you texted and what the messages said",
 
@@ -8,27 +8,24 @@ export const data18 = [
   "Eat a raw piece of garlic",
 
   "Do 100 squats",
-
+  "Tell a Joke",
   "Keep three ice cubes in your mouth until they melt",
 
-  "Say something dirty to the person on your left",
+  "Eat a raw piece of chilli",
 
-  "Give a foot massage to the person on your right",
-
-  "Put 10 different available liquids into a cup and drink it",
+  "sing a song of you fav singer",
 
   "Yell out the first word that comes to your mind",
 ];
 
 export const data = [
   "What have you bought that’s been the biggest waste of money?",
-  " If you could become invisible, what’s the worst thing you’d do?",
+  "If you given a superpower, what would it be?",
   "Who is the most surprising person to ever slide into your DMs?",
-  "Who in the room would be the worst person to date and why?",
   "Who is ur childhood crush?",
   "Have you ever cheated on exam?",
   "Who is ur celebrity crush?",
   "what is the most Craziest thing you have done in your school/college?",
-  "Ex-girlfriend or Crush , whom do you wanna meet?",
-  "your partner or bestfriend whom do you wanna kill?",
+  "Who is your favourite singer?",
+  "Who is your favorite politician?",
 ];
